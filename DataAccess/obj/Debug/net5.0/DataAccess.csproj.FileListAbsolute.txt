@@ -46,3 +46,5 @@ C:\Users\Owner\source\repos\NebraskaCodeDemo\DataAccess\obj\Debug\net5.0\DataAcc
 C:\Users\Owner\source\repos\NebraskaCodeDemo\DataAccess\obj\Debug\net5.0\DataAccess.dll
 C:\Users\Owner\source\repos\NebraskaCodeDemo\DataAccess\obj\Debug\net5.0\ref\DataAccess.dll
 C:\Users\Owner\source\repos\NebraskaCodeDemo\DataAccess\obj\Debug\net5.0\DataAccess.pdb
+C:\Users\Owner\source\repos\NebraskaCodeDemo\DataAccess\bin\Debug\net5.0\ModelDTOs.dll
+C:\Users\Owner\source\repos\NebraskaCodeDemo\DataAccess\bin\Debug\net5.0\ModelDTOs.pdb

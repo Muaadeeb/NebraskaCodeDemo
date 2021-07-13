@@ -82,6 +82,20 @@ using BlazorClient.Shared;
 #line default
 #line hidden
 #nullable disable
+#nullable restore
+#line 12 "C:\Users\Owner\source\repos\NebraskaCodeDemo\BlazorClient\_Imports.razor"
+using ModelDTOs;
+
+#line default
+#line hidden
+#nullable disable
+#nullable restore
+#line 13 "C:\Users\Owner\source\repos\NebraskaCodeDemo\BlazorClient\_Imports.razor"
+using BlazorClient.Services.Interfaces;
+
+#line default
+#line hidden
+#nullable disable
     [Microsoft.AspNetCore.Components.RouteAttribute("/fetchdata")]
     public partial class FetchData : Microsoft.AspNetCore.Components.ComponentBase
     {

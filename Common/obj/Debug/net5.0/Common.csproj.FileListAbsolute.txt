@@ -25,7 +25,6 @@ C:\Users\Owner\source\repos\NebraskaCodeDemo\Common\bin\Debug\net5.0\Common.deps
 C:\Users\Owner\source\repos\NebraskaCodeDemo\Common\bin\Debug\net5.0\Common.dll
 C:\Users\Owner\source\repos\NebraskaCodeDemo\Common\bin\Debug\net5.0\ref\Common.dll
 C:\Users\Owner\source\repos\NebraskaCodeDemo\Common\bin\Debug\net5.0\Common.pdb
-C:\Users\Owner\source\repos\NebraskaCodeDemo\Common\obj\Debug\net5.0\Common.csprojAssemblyReference.cache
 C:\Users\Owner\source\repos\NebraskaCodeDemo\Common\obj\Debug\net5.0\Common.GeneratedMSBuildEditorConfig.editorconfig
 C:\Users\Owner\source\repos\NebraskaCodeDemo\Common\obj\Debug\net5.0\Common.AssemblyInfoInputs.cache
 C:\Users\Owner\source\repos\NebraskaCodeDemo\Common\obj\Debug\net5.0\Common.AssemblyInfo.cs
@@ -33,3 +32,8 @@ C:\Users\Owner\source\repos\NebraskaCodeDemo\Common\obj\Debug\net5.0\Common.cspr
 C:\Users\Owner\source\repos\NebraskaCodeDemo\Common\obj\Debug\net5.0\Common.dll
 C:\Users\Owner\source\repos\NebraskaCodeDemo\Common\obj\Debug\net5.0\ref\Common.dll
 C:\Users\Owner\source\repos\NebraskaCodeDemo\Common\obj\Debug\net5.0\Common.pdb
+C:\Users\Owner\source\repos\NebraskaCodeDemo\Common\bin\Debug\net5.0\ModelDTOs.dll
+C:\Users\Owner\source\repos\NebraskaCodeDemo\Common\bin\Debug\net5.0\ModelDTOs.pdb
+C:\Users\Owner\source\repos\NebraskaCodeDemo\Common\obj\Debug\net5.0\Common.csprojAssemblyReference.cache
+C:\Users\Owner\source\repos\NebraskaCodeDemo\Common\obj\Debug\net5.0\Common.csproj.CopyComplete
+C:\Users\Owner\source\repos\NebraskaCodeDemo\Common\bin\Debug\net5.0\NebraskaCodeDataLibraryDemo.dll

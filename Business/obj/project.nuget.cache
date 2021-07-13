@@ -1,8 +1,12 @@
 {
   "version": 2,
-  "dgSpecHash": "g3RKHqt2dtV2Cs9JMBqe0F0Du0GuTh0+3PvyANtxCiblYImdnNK0XF678AT/yc7z25sz03sPfbbzTrIA2+sB3Q==",
+  "dgSpecHash": "8Xk//PNOXaEDPXZE/hLUZKVrTyCWoLUC7hpaIWZN/teuAlljxe/JjyjU0MUc3ukmlusWiBl10Lkm8C6W2wKJ3w==",
   "success": true,
   "projectFilePath": "C:\\Users\\Owner\\source\\repos\\NebraskaCodeDemo\\Business\\Business.csproj",
-  "expectedPackageFiles": [],
+  "expectedPackageFiles": [
+    "C:\\Users\\Owner\\.nuget\\packages\\automapper\\10.1.1\\automapper.10.1.1.nupkg.sha512",
+    "C:\\Users\\Owner\\.nuget\\packages\\microsoft.csharp\\4.7.0\\microsoft.csharp.4.7.0.nupkg.sha512",
+    "C:\\Users\\Owner\\.nuget\\packages\\system.reflection.emit\\4.7.0\\system.reflection.emit.4.7.0.nupkg.sha512"
+  ],
   "logs": []
 }

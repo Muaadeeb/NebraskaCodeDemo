@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using Common.Models;
+using ModelDTOs;
 
 namespace Business.Interfaces
 {
@@ -12,8 +13,8 @@ namespace Business.Interfaces
         Task<int> CreateBookAsync(Book book);
         Task<int> UpdateBookAsync(Book book);
         Task<int> DeleteBookAsync(int bookId);
-        Task<List<Book>> GetBooksBySearchValueAsync(string searchValue);
-        Task<Book> GetBookByBookIdAsync(int bookId);
-        Task<List<Book>> GetAllBooksAsync();
+        Task<IEnumerable<BookDTO>> GetBooksBySearchValueAsync(string searchValue);
+        Task<IEnumerable<BookDTO>> GetBookByBookIdAsync(int bookId);
+        Task<IEnumerable<BookDTO>> GetAllBooksAsync();
     }
 }

@@ -12,8 +12,8 @@ namespace DataAccess.Interfaces
         Task<int> CreateBookAsync(Book book);
         Task<int> UpdateBookAsync(Book book);
         Task<int> DeleteBookAsync(int bookId);
-        Task<List<Book>> GetBooksBySearchValueAsync(string searchValue);
-        Task<Book> GetBookByBookIdAsync(int bookId);
-        Task<List<Book>> GetAllBooksAsync();
+        Task<IEnumerable<Book>> GetBooksBySearchValueAsync(string searchValue);
+        Task<IEnumerable<Book>> GetBookByBookIdAsync(int bookId);
+        Task<IEnumerable<Book>> GetAllBooksAsync();
     }
 }

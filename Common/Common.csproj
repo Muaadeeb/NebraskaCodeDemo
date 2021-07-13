@@ -4,4 +4,18 @@
     <TargetFramework>net5.0</TargetFramework>
   </PropertyGroup>
 
+  <ItemGroup>
+    <PackageReference Include="AutoMapper" Version="10.1.1" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\ModelDTOs\ModelDTOs.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Reference Include="NebraskaCodeDataLibraryDemo">
+      <HintPath>..\NebraskaCodeDataLibraryDemo.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+
 </Project>

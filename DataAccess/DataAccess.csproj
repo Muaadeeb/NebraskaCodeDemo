@@ -6,11 +6,17 @@
 
   <ItemGroup>
     <ProjectReference Include="..\Common\Common.csproj" />
+    <ProjectReference Include="..\ModelDTOs\ModelDTOs.csproj" />
   </ItemGroup>
 
   <ItemGroup>
+    <PackageReference Include="AutoMapper" Version="10.1.1" />
+  </ItemGroup>
+
+
+  <ItemGroup>
     <Reference Include="NebraskaCodeDataLibraryDemo">
-      <HintPath>NebraskaCodeDataLibraryDemo.dll</HintPath>
+      <HintPath>..\NebraskaCodeDataLibraryDemo.dll</HintPath>
     </Reference>
   </ItemGroup>
 

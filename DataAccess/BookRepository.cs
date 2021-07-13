@@ -3,71 +3,35 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using AutoMapper;
 using Common.Models;
 using DataAccess.Interfaces;
 using NebraskaCodeDataLibraryDemo.Data.Interfaces;
+using NebraskaCodeDataLibraryDemo.Db.Models;
 
 namespace DataAccess
 {
 	public class BookRepository : IBookRepository
     {
         private readonly IBookData _bookData;
+        private readonly IMapper _mapper;
 
-        public BookRepository(IBookData bookData)
+        public BookRepository(IBookData bookData, IMapper mapper)
         {
             _bookData = bookData;
+            _mapper = mapper;
         }
 
         public async Task<int> CreateBookAsync(Book book)
         {
-            var newBook = new NebraskaCodeDataLibraryDemo.Db.Models.Book()
-            {
-                BookId = book.BookId,
-                Title = book.Title,
-                AuthorFirstName = book.AuthorFirstName,
-                AuthorLastName = book.AuthorLastName,
-                AuthorMiddleName = book.AuthorMiddleName,
-                CategoryId = book.CategoryId,
-                SubCategoryId = book.SubCategoryId,
-                PrintLength = book.PrintLength,
-                Publisher = book.Publisher,
-                PublicationDate = book.PublicationDate,
-                ISBN = book.ISBN,
-                ReviewRating = book.ReviewRating,
-                CreatedUser = book.CreatedUser,
-                UpdatedUser = book.UpdatedUser,
-                CreatedDate = book.CreatedDate,
-                UpdatedDate = book.UpdatedDate
-            };
-
-            var result = await _bookData.CreateBookAsync(newBook);
-            return result;
+            var bookModel = _mapper.Map<Book, BookModel>(book);
+            return await _bookData.CreateBookAsync(bookModel);
         }
 
         public async Task<int> UpdateBookAsync(Book book)
         {
-            var updateBook = new NebraskaCodeDataLibraryDemo.Db.Models.Book()
-            {
-                BookId = book.BookId,
-                Title = book.Title,
-                AuthorFirstName = book.AuthorFirstName,
-                AuthorLastName = book.AuthorLastName,
-                AuthorMiddleName = book.AuthorMiddleName,
-                CategoryId = book.CategoryId,
-                SubCategoryId = book.SubCategoryId,
-                PrintLength = book.PrintLength,
-                Publisher = book.Publisher,
-                PublicationDate = book.PublicationDate,
-                ISBN = book.ISBN,
-                ReviewRating = book.ReviewRating,
-                CreatedUser = book.CreatedUser,
-                UpdatedUser = book.UpdatedUser,
-                CreatedDate = book.CreatedDate,
-                UpdatedDate = book.UpdatedDate
-            };
-
-            var result = await _bookData.UpdateBookAsync(updateBook);
-            return result;
+            var bookModel = _mapper.Map<Book, BookModel>(book);
+            return await _bookData.UpdateBookAsync(bookModel);
         }
 
         public async Task<int> DeleteBookAsync(int bookId)
@@ -76,94 +40,22 @@ namespace DataAccess
             return result;
         }
 
-        public async Task<List<Book>> GetBooksBySearchValueAsync(string searchValue)
+        public async Task<IEnumerable<Book>> GetBooksBySearchValueAsync(string searchValue)
         {
-            var results = await _bookData.GetBooksBySearchValueAsync(searchValue);
-
-            var book = new Book();
-            var bookList = new List<Book>();
-
-            foreach (var result in results)
-            {
-                book.BookId = result.BookId;
-                book.Title = result.Title;
-                book.AuthorFirstName = result.AuthorFirstName;
-                book.AuthorMiddleName = result.AuthorMiddleName;
-                book.AuthorLastName = result.AuthorLastName;
-                book.CategoryId = result.CategoryId;
-                book.SubCategoryId = result.SubCategoryId;
-                book.PrintLength = result.PrintLength;
-                book.Publisher = result.Publisher;
-                book.PublicationDate = result.PublicationDate;
-                book.ISBN = result.ISBN;
-                book.ReviewRating = result.ReviewRating;
-                book.CreatedUser = result.CreatedUser;
-                book.UpdatedUser = result.UpdatedUser;
-                book.CreatedDate = result.CreatedDate;
-                book.UpdatedDate = book.UpdatedDate;
-
-                bookList.Add(book);
-            }
-
-            return bookList;
+            IEnumerable<Book> books = _mapper.Map<IEnumerable<BookModel>, IEnumerable<Book>>(await _bookData.GetBooksBySearchValueAsync(searchValue));
+            return books;
         }
 
-        public async Task<Book> GetBookByBookIdAsync(int bookId)
+        public async Task<IEnumerable<Book>> GetBookByBookIdAsync(int bookId)
         {
-            var result = await _bookData.GetBookByBookIdAsync(bookId);
-
-            var book = new Book();
-            book.BookId = result.BookId;
-            book.Title = result.Title;
-            book.AuthorFirstName = result.AuthorFirstName;
-            book.AuthorMiddleName = result.AuthorMiddleName;
-            book.AuthorLastName = result.AuthorLastName;
-            book.CategoryId = result.CategoryId;
-            book.SubCategoryId = result.SubCategoryId;
-            book.PrintLength = result.PrintLength;
-            book.Publisher = result.Publisher;
-            book.PublicationDate = result.PublicationDate;
-            book.ISBN = result.ISBN;
-            book.ReviewRating = result.ReviewRating;
-            book.CreatedUser = result.CreatedUser;
-            book.UpdatedUser = result.UpdatedUser;
-            book.CreatedDate = result.CreatedDate;
-            book.UpdatedDate = book.UpdatedDate;
-
+            IEnumerable<Book> book = _mapper.Map<IEnumerable<BookModel>, IEnumerable<Book>>(await _bookData.GetBookByBookIdAsync(bookId));
             return book;
         }
 
-        public async Task<List<Book>> GetAllBooksAsync()
+        public async Task<IEnumerable<Book>> GetAllBooksAsync()
         {
-            var results = await _bookData.GetAllBooksAsync();
-
-            var book = new Book();
-            var bookList = new List<Book>();
-
-            foreach (var result in results)
-            {
-                book.BookId = result.BookId;
-                book.Title = result.Title;
-                book.AuthorFirstName = result.AuthorFirstName;
-                book.AuthorMiddleName = result.AuthorMiddleName;
-                book.AuthorLastName = result.AuthorLastName;
-                book.CategoryId = result.CategoryId;
-                book.SubCategoryId = result.SubCategoryId;
-                book.PrintLength = result.PrintLength;
-                book.Publisher = result.Publisher;
-                book.PublicationDate = result.PublicationDate;
-                book.ISBN = result.ISBN;
-                book.ReviewRating = result.ReviewRating;
-                book.CreatedUser = result.CreatedUser;
-                book.UpdatedUser = result.UpdatedUser;
-                book.CreatedDate = result.CreatedDate;
-                book.UpdatedDate = book.UpdatedDate;
-
-                bookList.Add(book);
-            }
-
-            return bookList;
+            IEnumerable<Book> books = _mapper.Map<IEnumerable<BookModel>, IEnumerable<Book>>(await _bookData.GetAllBooksAsync());
+            return books;
         }
-
 	}
 }

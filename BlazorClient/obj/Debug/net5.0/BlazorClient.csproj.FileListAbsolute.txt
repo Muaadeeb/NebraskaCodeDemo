@@ -630,3 +630,12 @@ C:\Users\Owner\source\repos\NebraskaCodeDemo\BlazorClient\obj\Debug\net5.0\Blazo
 C:\Users\Owner\source\repos\NebraskaCodeDemo\BlazorClient\obj\Debug\net5.0\BlazorClient.dll
 C:\Users\Owner\source\repos\NebraskaCodeDemo\BlazorClient\obj\Debug\net5.0\ref\BlazorClient.dll
 C:\Users\Owner\source\repos\NebraskaCodeDemo\BlazorClient\obj\Debug\net5.0\BlazorClient.pdb
+C:\Users\Owner\source\repos\NebraskaCodeDemo\BlazorClient\obj\Debug\net5.0\RazorDeclaration\Pages\Books\GetAllBooks.razor.g.cs
+C:\Users\Owner\source\repos\NebraskaCodeDemo\BlazorClient\obj\Debug\net5.0\build-gz\0AM+20WU.gz
+C:\Users\Owner\source\repos\NebraskaCodeDemo\BlazorClient\bin\Debug\net5.0\wwwroot\_framework\Newtonsoft.Json.dll.gz
+C:\Users\Owner\source\repos\NebraskaCodeDemo\BlazorClient\bin\Debug\net5.0\wwwroot\_framework\ModelDTOs.dll.gz
+C:\Users\Owner\source\repos\NebraskaCodeDemo\BlazorClient\bin\Debug\net5.0\wwwroot\_framework\Newtonsoft.Json.dll
+C:\Users\Owner\source\repos\NebraskaCodeDemo\BlazorClient\bin\Debug\net5.0\wwwroot\_framework\ModelDTOs.dll
+C:\Users\Owner\source\repos\NebraskaCodeDemo\BlazorClient\bin\Debug\net5.0\wwwroot\_framework\ModelDTOs.pdb
+C:\Users\Owner\source\repos\NebraskaCodeDemo\BlazorClient\obj\Debug\net5.0\Razor\Pages\Books\GetAllBooks.razor.g.cs
+C:\Users\Owner\source\repos\NebraskaCodeDemo\BlazorClient\obj\Debug\net5.0\build-gz\Cn78IuEw.gz
