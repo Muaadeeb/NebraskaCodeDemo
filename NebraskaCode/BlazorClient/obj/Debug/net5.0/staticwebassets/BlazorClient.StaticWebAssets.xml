@@ -1,4 +1,0 @@
-﻿<StaticWebAssets Version="1.0">
-  <ContentRoot BasePath="/" Path="C:\Users\timothy.ingledue\source\repos\NebraskaCodeDemo\NebraskaCodeDemo\NebraskaCode\BlazorClient\bin\Debug\net5.0\wwwroot\" />
-  <ContentRoot BasePath="/" Path="C:\Users\timothy.ingledue\source\repos\NebraskaCodeDemo\NebraskaCodeDemo\NebraskaCode\BlazorClient\obj\Debug\net5.0\scopedcss\bundle\" />
-</StaticWebAssets>
