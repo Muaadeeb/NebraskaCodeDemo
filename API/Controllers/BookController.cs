@@ -23,8 +23,7 @@ namespace API.Controllers
             _bookManager = bookManager;
         }
 
-        [HttpGet]
-        [Route("getallbooks")]
+        [HttpGet("getallbooks")]
         public async Task<IActionResult> GetAllBooks()
         {
             try
@@ -43,41 +42,36 @@ namespace API.Controllers
             }
         }
 
-        [HttpGet("{id}")]
-        [Route("getbookbybookid")]
+        [HttpGet("getbookbybookid/{id}")]
         public async Task<IActionResult> GetBookByBookId(int id)
         {
             var result = await _bookManager.GetBookByBookIdAsync(id);
             return Ok(result);
         }
 
-        //[HttpGet("{booksearchValue}")]
-        //[Route("searchvalue")]
-        //public async Task<IActionResult> GetBooksBySearchValue(string searchValue)
-        //{
-        //    var result = await _bookManager.GetBooksBySearchValueAsync(searchValue);
-        //    return Ok(result);
-        //}
+        [HttpGet("searchvalue/{booksearchValue}")]
+        public async Task<IActionResult> GetBooksBySearchValue(string searchValue)
+        {
+            var result = await _bookManager.GetBooksBySearchValueAsync(searchValue);
+            return Ok(result);
+        }
 
-        [HttpPost]
-        [Route("updatebook")]
+        [HttpPost("updatebook")]
         public async Task<int> UpdateBook([FromBody] Book book)
         {
             return await _bookManager.UpdateBookAsync(book);
         }
 
-        //[HttpPut("{id}")]
-        //[Route("createbook")]
-        //public async Task<int> CreateBook(int id, [FromBody] Book book)
-        //{
-        //    return await _bookManager.CreateBookAsync(book);
-        //}
+        [HttpPut("createbook/{id}")]
+        public async Task<int> CreateBook(int id, [FromBody] Book book)
+        {
+            return await _bookManager.CreateBookAsync(book);
+        }
 
-        //[HttpDelete("{id}")]
-        ////[Route("deletebookbybookId")]
-        //public async Task<int> DeleteBookByBookId(int id)
-        //{
-        //    return await _bookManager.DeleteBookAsync(id);
-        //}
+        [HttpDelete("deletebookbybookid/{id}")]
+        public async Task<int> DeleteBookByBookId(int id)
+        {
+            return await _bookManager.DeleteBookAsync(id);
+        }
     }
 }

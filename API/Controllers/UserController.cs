@@ -20,41 +20,40 @@ namespace API.Controllers
             _userManager = userManager;
         }
 
-        //[HttpGet]
-        //public async Task<List<User>> GetAllUsers()
-        //{
-        //    return await _userManager.GetAllUsers();
-        //}
+        [HttpGet("GetAllUsers")]
+        public async Task<List<User>> GetAllUsers()
+        {
+            return await _userManager.GetAllUsers();
+        }
 
-        //[HttpGet("{id}")]
-        //public async Task<User> GetUsersByUserId(int id)
-        //{
-        //    return await _userManager.GetUserByUserId(id);
-        //}
+        [HttpGet("getusersbyuserid/{id}")]
+        public async Task<User> GetUsersByUserId(int id)
+        {
+            return await _userManager.GetUserByUserId(id);
+        }
 
-        //[HttpGet("{userSearchValue}")]
-        //[Route("UserSearchValue")]
-        //public async Task<List<User>> GetUsersBySearchValue(string userSearchValue)
-        //{
-        //    return await _userManager.GetUsersBySearchValue(userSearchValue);
-        //}
+        [HttpGet("usersearchvalue/{userSearchValue}")]
+        public async Task<List<User>> GetUsersBySearchValue(string userSearchValue)
+        {
+            return await _userManager.GetUsersBySearchValue(userSearchValue);
+        }
 
-        //[HttpPost]
-        //public async Task<int> UpdateUser([FromBody] User User)
-        //{
-        //    return await _userManager.UpdateUser(User);
-        //}
+        [HttpPost("updateuser")]
+        public async Task<int> UpdateUser([FromBody] User User)
+        {
+            return await _userManager.UpdateUser(User);
+        }
 
-        //[HttpPut("{id}")]
-        //public async Task<int> CreateUser(int id, [FromBody] User User)
-        //{
-        //    return await _userManager.CreateUser(User);
-        //}
+        [HttpPut("createuser/{id}")]
+        public async Task<int> CreateUser(int id, [FromBody] User User)
+        {
+            return await _userManager.CreateUser(User);
+        }
 
-        //[HttpDelete("{id}")]
-        //public async Task<int> DeleteUser(int id)
-        //{
-        //    return await _userManager.DeleteUser(id);
-        //}
+        [HttpDelete("deleteuser/{id}")]
+        public async Task<int> DeleteUser(int id)
+        {
+            return await _userManager.DeleteUser(id);
+        }
     }
 }

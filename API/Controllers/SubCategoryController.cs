@@ -21,41 +21,41 @@ namespace API.Controllers
             _subCategoryManager = subCategoryManager;
         }
 
-        //[HttpGet]
-        //public async Task<List<SubCategory>> GetAllSubCategories()
-        //{
-        //    return await _subCategoryManager.GetAllSubCategories();
-        //}
+        [HttpGet("getallsubcategories")]
+        public async Task<List<SubCategory>> GetAllSubCategories()
+        {
+            return await _subCategoryManager.GetAllSubCategories();
+        }
 
-        //[HttpGet("{id}")]
-        //public async Task<SubCategory> GetSubCategoryBySubCategoryId(int id)
-        //{
-        //    return await _subCategoryManager.GetSubCategoryBySubCategoryId(id);
-        //}
+        [HttpGet("getsubcategorybysubcategoryid/{id}")]
+        public async Task<SubCategory> GetSubCategoryBySubCategoryId(int id)
+        {
+            return await _subCategoryManager.GetSubCategoryBySubCategoryId(id);
+        }
 
-        //[HttpGet("{subCategorySearchValue}")]
-        //[Route("SubCategorySearchValue")]
-        //public async Task<List<SubCategory>> GetSubCategoriesBySearchValue(string subCategorySearchValue)
-        //{
-        //    return await _subCategoryManager.GetSubCategoriesBySearchValue(subCategorySearchValue);
-        //}
-
-        //[HttpPost]
-        //public async Task<int> UpdateSubCategory([FromBody] SubCategory type)
-        //{
-        //    return await _subCategoryManager.UpdateSubCategory(type);
-        //}
-
-        //[HttpPut("{id}")]
-        //public async Task<int> CreateSubCategory(int id, [FromBody] SubCategory type)
-        //{
-        //    return await _subCategoryManager.CreateSubCategory(type);
-        //}
+        [HttpGet("subcategorysearchvalue/{subCategorySearchValue}")]
         
-        //[HttpDelete("{id}")]
-        //public async Task<int> DeleteSubCategory(int id)
-        //{
-        //    return await _subCategoryManager.DeleteSubCategory(id);
-        //}
+        public async Task<List<SubCategory>> GetSubCategoriesBySearchValue(string subCategorySearchValue)
+        {
+            return await _subCategoryManager.GetSubCategoriesBySearchValue(subCategorySearchValue);
+        }
+
+        [HttpPost("updatesubcategory")]
+        public async Task<int> UpdateSubCategory([FromBody] SubCategory type)
+        {
+            return await _subCategoryManager.UpdateSubCategory(type);
+        }
+
+        [HttpPut("createsubcategory{id}")]
+        public async Task<int> CreateSubCategory(int id, [FromBody] SubCategory type)
+        {
+            return await _subCategoryManager.CreateSubCategory(type);
+        }
+
+        [HttpDelete("deletesubcategory/{id}")]
+        public async Task<int> DeleteSubCategory(int id)
+        {
+            return await _subCategoryManager.DeleteSubCategory(id);
+        }
     }
 }

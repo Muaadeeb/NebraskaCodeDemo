@@ -54,28 +54,9 @@ namespace BlazorClient.Services
 
         public async Task<IEnumerable<BookDTO>> GetAllBooksAsync()
         {
-            try
-            {
-                var results = await _httpClient.GetAsync("/api/book/getallbooks");
-                                                        
-
-
-                var contentResults = results.Content.ToString();
-
-                if (string.IsNullOrEmpty(results.Content.ToString()))
-                {
-                    return default;
-                }
-
-                var content = await results.Content.ReadAsStringAsync();
-                return JsonConvert.DeserializeObject<IEnumerable<BookDTO>>(content);
-            }
-            catch (Exception ex)
-            {
-                throw new Exception("Something bad happened here: " + ex.Message);
-            }
-            
+            var results = await _httpClient.GetAsync("/api/book/getallbooks");
+            var content = await results.Content.ReadAsStringAsync();
+            return JsonConvert.DeserializeObject<IEnumerable<BookDTO>>(content);
         }
-
     }
 }

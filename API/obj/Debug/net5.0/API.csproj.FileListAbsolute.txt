@@ -134,3 +134,7 @@ C:\Users\Owner\source\repos\NebraskaCodeDemo\API\bin\Debug\net5.0\Microsoft.AspN
 C:\Users\Owner\source\repos\NebraskaCodeDemo\API\bin\Debug\net5.0\Microsoft.AspNetCore.Mvc.NewtonsoftJson.dll
 C:\Users\Owner\source\repos\NebraskaCodeDemo\API\bin\Debug\net5.0\Newtonsoft.Json.dll
 C:\Users\Owner\source\repos\NebraskaCodeDemo\API\bin\Debug\net5.0\Newtonsoft.Json.Bson.dll
+C:\Users\Owner\source\repos\NebraskaCodeDemo\API\bin\Debug\net5.0\Azure.Core.dll
+C:\Users\Owner\source\repos\NebraskaCodeDemo\API\bin\Debug\net5.0\Azure.Identity.dll
+C:\Users\Owner\source\repos\NebraskaCodeDemo\API\bin\Debug\net5.0\Microsoft.Bcl.AsyncInterfaces.dll
+C:\Users\Owner\source\repos\NebraskaCodeDemo\API\bin\Debug\net5.0\Microsoft.Identity.Client.Extensions.Msal.dll
