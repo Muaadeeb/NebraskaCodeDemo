@@ -21,3 +21,15 @@ C:\Users\timothy.ingledue\source\repos\NebraskaCodeDemo_\ModelDTOs\obj\Debug\net
 C:\Users\timothy.ingledue\source\repos\NebraskaCodeDemo_\ModelDTOs\obj\Debug\net5.0\ModelDTOs.dll
 C:\Users\timothy.ingledue\source\repos\NebraskaCodeDemo_\ModelDTOs\obj\Debug\net5.0\ref\ModelDTOs.dll
 C:\Users\timothy.ingledue\source\repos\NebraskaCodeDemo_\ModelDTOs\obj\Debug\net5.0\ModelDTOs.pdb
+C:\Users\Owner\source\repos\NebraskaCodeDemo\ModelDTOs\bin\Debug\net5.0\ModelDTOs.deps.json
+C:\Users\Owner\source\repos\NebraskaCodeDemo\ModelDTOs\bin\Debug\net5.0\ModelDTOs.dll
+C:\Users\Owner\source\repos\NebraskaCodeDemo\ModelDTOs\bin\Debug\net5.0\ref\ModelDTOs.dll
+C:\Users\Owner\source\repos\NebraskaCodeDemo\ModelDTOs\bin\Debug\net5.0\ModelDTOs.pdb
+C:\Users\Owner\source\repos\NebraskaCodeDemo\ModelDTOs\obj\Debug\net5.0\ModelDTOs.csprojAssemblyReference.cache
+C:\Users\Owner\source\repos\NebraskaCodeDemo\ModelDTOs\obj\Debug\net5.0\ModelDTOs.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\Owner\source\repos\NebraskaCodeDemo\ModelDTOs\obj\Debug\net5.0\ModelDTOs.AssemblyInfoInputs.cache
+C:\Users\Owner\source\repos\NebraskaCodeDemo\ModelDTOs\obj\Debug\net5.0\ModelDTOs.AssemblyInfo.cs
+C:\Users\Owner\source\repos\NebraskaCodeDemo\ModelDTOs\obj\Debug\net5.0\ModelDTOs.csproj.CoreCompileInputs.cache
+C:\Users\Owner\source\repos\NebraskaCodeDemo\ModelDTOs\obj\Debug\net5.0\ModelDTOs.dll
+C:\Users\Owner\source\repos\NebraskaCodeDemo\ModelDTOs\obj\Debug\net5.0\ref\ModelDTOs.dll
+C:\Users\Owner\source\repos\NebraskaCodeDemo\ModelDTOs\obj\Debug\net5.0\ModelDTOs.pdb

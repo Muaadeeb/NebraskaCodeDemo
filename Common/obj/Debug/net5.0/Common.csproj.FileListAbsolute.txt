@@ -21,3 +21,15 @@ C:\Users\timothy.ingledue\source\repos\NebraskaCodeDemo_\Common\obj\Debug\net5.0
 C:\Users\timothy.ingledue\source\repos\NebraskaCodeDemo_\Common\obj\Debug\net5.0\Common.dll
 C:\Users\timothy.ingledue\source\repos\NebraskaCodeDemo_\Common\obj\Debug\net5.0\ref\Common.dll
 C:\Users\timothy.ingledue\source\repos\NebraskaCodeDemo_\Common\obj\Debug\net5.0\Common.pdb
+C:\Users\Owner\source\repos\NebraskaCodeDemo\Common\bin\Debug\net5.0\Common.deps.json
+C:\Users\Owner\source\repos\NebraskaCodeDemo\Common\bin\Debug\net5.0\Common.dll
+C:\Users\Owner\source\repos\NebraskaCodeDemo\Common\bin\Debug\net5.0\ref\Common.dll
+C:\Users\Owner\source\repos\NebraskaCodeDemo\Common\bin\Debug\net5.0\Common.pdb
+C:\Users\Owner\source\repos\NebraskaCodeDemo\Common\obj\Debug\net5.0\Common.csprojAssemblyReference.cache
+C:\Users\Owner\source\repos\NebraskaCodeDemo\Common\obj\Debug\net5.0\Common.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\Owner\source\repos\NebraskaCodeDemo\Common\obj\Debug\net5.0\Common.AssemblyInfoInputs.cache
+C:\Users\Owner\source\repos\NebraskaCodeDemo\Common\obj\Debug\net5.0\Common.AssemblyInfo.cs
+C:\Users\Owner\source\repos\NebraskaCodeDemo\Common\obj\Debug\net5.0\Common.csproj.CoreCompileInputs.cache
+C:\Users\Owner\source\repos\NebraskaCodeDemo\Common\obj\Debug\net5.0\Common.dll
+C:\Users\Owner\source\repos\NebraskaCodeDemo\Common\obj\Debug\net5.0\ref\Common.dll
+C:\Users\Owner\source\repos\NebraskaCodeDemo\Common\obj\Debug\net5.0\Common.pdb
