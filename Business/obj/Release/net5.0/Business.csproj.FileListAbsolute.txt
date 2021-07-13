@@ -1,0 +1,15 @@
+C:\Users\timothy.ingledue\source\repos\NebraskaCodeDemo\Business\bin\Release\net5.0\Business.deps.json
+C:\Users\timothy.ingledue\source\repos\NebraskaCodeDemo\Business\bin\Release\net5.0\Business.dll
+C:\Users\timothy.ingledue\source\repos\NebraskaCodeDemo\Business\bin\Release\net5.0\ref\Business.dll
+C:\Users\timothy.ingledue\source\repos\NebraskaCodeDemo\Business\bin\Release\net5.0\Business.pdb
+C:\Users\timothy.ingledue\source\repos\NebraskaCodeDemo\Business\bin\Release\net5.0\Common.dll
+C:\Users\timothy.ingledue\source\repos\NebraskaCodeDemo\Business\bin\Release\net5.0\Common.pdb
+C:\Users\timothy.ingledue\source\repos\NebraskaCodeDemo\Business\obj\Release\net5.0\Business.csprojAssemblyReference.cache
+C:\Users\timothy.ingledue\source\repos\NebraskaCodeDemo\Business\obj\Release\net5.0\Business.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\timothy.ingledue\source\repos\NebraskaCodeDemo\Business\obj\Release\net5.0\Business.AssemblyInfoInputs.cache
+C:\Users\timothy.ingledue\source\repos\NebraskaCodeDemo\Business\obj\Release\net5.0\Business.AssemblyInfo.cs
+C:\Users\timothy.ingledue\source\repos\NebraskaCodeDemo\Business\obj\Release\net5.0\Business.csproj.CoreCompileInputs.cache
+C:\Users\timothy.ingledue\source\repos\NebraskaCodeDemo\Business\obj\Release\net5.0\Business.csproj.CopyComplete
+C:\Users\timothy.ingledue\source\repos\NebraskaCodeDemo\Business\obj\Release\net5.0\Business.dll
+C:\Users\timothy.ingledue\source\repos\NebraskaCodeDemo\Business\obj\Release\net5.0\ref\Business.dll
+C:\Users\timothy.ingledue\source\repos\NebraskaCodeDemo\Business\obj\Release\net5.0\Business.pdb

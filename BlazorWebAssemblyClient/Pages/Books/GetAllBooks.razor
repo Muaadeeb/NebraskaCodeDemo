@@ -1,0 +1,24 @@
+﻿@page "/books/getallbooks"
+@page "/getallbooks"
+
+@inject IBookService _bookService;
+
+<h3>GetAllBooks</h3>
+
+@code {
+    
+    public List<BookDTO> Books { get; set; }
+
+
+    protected override async Task OnInitializedAsync()
+    {
+        try
+        {
+            Books = await _bookService.GetAllBooksAsync();
+        }
+        catch(Exception ex)
+        {
+            throw new Exception("Something bad happened here: " + ex.Message);
+        }
+    }
+}
