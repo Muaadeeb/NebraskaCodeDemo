@@ -646,3 +646,5 @@ C:\Users\Owner\source\repos\NebraskaCodeDemo\BlazorClient\obj\Debug\net5.0\Razor
 C:\Users\Owner\source\repos\NebraskaCodeDemo\BlazorClient\obj\Debug\net5.0\Razor\Pages\Books\BookList.razor.g.cs
 C:\Users\Owner\source\repos\NebraskaCodeDemo\BlazorClient\obj\Debug\net5.0\Razor\Pages\Books\BookUpsert.razor.g.cs
 C:\Users\Owner\source\repos\NebraskaCodeDemo\BlazorClient\obj\Debug\net5.0\build-gz\gjMcJvTq.gz
+C:\Users\Owner\source\repos\NebraskaCodeDemo\BlazorClient\obj\Debug\net5.0\RazorDeclaration\Shared\DeleteConfirmation.razor.g.cs
+C:\Users\Owner\source\repos\NebraskaCodeDemo\BlazorClient\obj\Debug\net5.0\Razor\Shared\DeleteConfirmation.razor.g.cs

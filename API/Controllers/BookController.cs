@@ -49,10 +49,11 @@ namespace API.Controllers
             return Ok(result);
         }
 
-        [HttpGet("searchvalue/{booksearchValue}")]
-        public async Task<IActionResult> GetBooksBySearchValue(string searchValue)
+        //[HttpGet("searchvalue/{bookSearchValue}")]
+        [HttpGet("searchvalue")]
+        public async Task<IActionResult> GetBooksBySearchValue(string bookSearchValue)
         {
-            var result = await _bookManager.GetBooksBySearchValueAsync(searchValue);
+            var result = await _bookManager.GetBooksBySearchValueAsync(bookSearchValue);
             return Ok(result);
         }
 

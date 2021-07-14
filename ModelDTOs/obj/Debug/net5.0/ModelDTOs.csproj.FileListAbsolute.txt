@@ -32,4 +32,3 @@ C:\Users\Owner\source\repos\NebraskaCodeDemo\ModelDTOs\obj\Debug\net5.0\ModelDTO
 C:\Users\Owner\source\repos\NebraskaCodeDemo\ModelDTOs\obj\Debug\net5.0\ModelDTOs.dll
 C:\Users\Owner\source\repos\NebraskaCodeDemo\ModelDTOs\obj\Debug\net5.0\ref\ModelDTOs.dll
 C:\Users\Owner\source\repos\NebraskaCodeDemo\ModelDTOs\obj\Debug\net5.0\ModelDTOs.pdb
-C:\Users\Owner\source\repos\NebraskaCodeDemo\ModelDTOs\obj\Debug\net5.0\ModelDTOs.csprojAssemblyReference.cache

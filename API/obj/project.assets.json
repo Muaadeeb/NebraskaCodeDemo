@@ -717,6 +717,8 @@
         "type": "project",
         "framework": ".NETCoreApp,Version=v5.0",
         "dependencies": {
+          "AutoMapper": "10.1.1",
+          "AutoMapper.Extensions.Microsoft.DependencyInjection": "8.1.1",
           "Common": "1.0.0",
           "DataAccess": "1.0.0"
         },
@@ -746,8 +748,8 @@
         "framework": ".NETCoreApp,Version=v5.0",
         "dependencies": {
           "AutoMapper": "10.1.1",
-          "Common": "1.0.0",
-          "ModelDTOs": "1.0.0"
+          "AutoMapper.Extensions.Microsoft.DependencyInjection": "8.1.1",
+          "Common": "1.0.0"
         },
         "compile": {
           "bin/placeholder/DataAccess.dll": {}

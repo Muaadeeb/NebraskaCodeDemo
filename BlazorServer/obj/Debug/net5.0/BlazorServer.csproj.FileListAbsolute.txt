@@ -170,5 +170,4 @@ C:\Users\Owner\source\repos\NebraskaCodeDemo\BlazorServer\obj\Debug\net5.0\ref\B
 C:\Users\Owner\source\repos\NebraskaCodeDemo\BlazorServer\obj\Debug\net5.0\BlazorServer.pdb
 C:\Users\Owner\source\repos\NebraskaCodeDemo\BlazorServer\obj\Debug\net5.0\BlazorServer.genruntimeconfig.cache
 C:\Users\Owner\source\repos\NebraskaCodeDemo\BlazorServer\obj\Debug\net5.0\BlazorServer.csproj.CopyComplete
-C:\Users\Owner\source\repos\NebraskaCodeDemo\BlazorServer\obj\Debug\net5.0\BlazorServer.csprojAssemblyReference.cache
 C:\Users\Owner\source\repos\NebraskaCodeDemo\BlazorServer\bin\Debug\net5.0\Blazored.TextEditor.dll

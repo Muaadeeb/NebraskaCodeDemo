@@ -24,8 +24,15 @@ namespace DataAccess
 
         public async Task<int> CreateBookAsync(Book book)
         {
-            var bookModel = _mapper.Map<Book, BookModel>(book);
-            return await _bookData.CreateBookAsync(bookModel);
+            try
+            {
+                BookModel bookModel = _mapper.Map<Book, BookModel>(book);
+                return await _bookData.CreateBookAsync(bookModel);
+            }
+            catch(Exception ex)
+            {
+                throw new Exception(ex.Message);
+            }
         }
 
         public async Task<int> UpdateBookAsync(Book book)

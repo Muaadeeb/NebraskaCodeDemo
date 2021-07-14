@@ -1,11 +1,15 @@
 {
   "version": 2,
-  "dgSpecHash": "8Xk//PNOXaEDPXZE/hLUZKVrTyCWoLUC7hpaIWZN/teuAlljxe/JjyjU0MUc3ukmlusWiBl10Lkm8C6W2wKJ3w==",
+  "dgSpecHash": "8vfHs1phDuOxDiAvoNmQvSDLL3tz5JQi3tn+aEwr4bFQ6EK4YeXHXHMkwJenABZEwWVJg4Tp+tAxF+zBe603mA==",
   "success": true,
   "projectFilePath": "C:\\Users\\Owner\\source\\repos\\NebraskaCodeDemo\\Business\\Business.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\Owner\\.nuget\\packages\\automapper\\10.1.1\\automapper.10.1.1.nupkg.sha512",
+    "C:\\Users\\Owner\\.nuget\\packages\\automapper.extensions.microsoft.dependencyinjection\\8.1.1\\automapper.extensions.microsoft.dependencyinjection.8.1.1.nupkg.sha512",
     "C:\\Users\\Owner\\.nuget\\packages\\microsoft.csharp\\4.7.0\\microsoft.csharp.4.7.0.nupkg.sha512",
+    "C:\\Users\\Owner\\.nuget\\packages\\microsoft.extensions.dependencyinjection.abstractions\\3.0.0\\microsoft.extensions.dependencyinjection.abstractions.3.0.0.nupkg.sha512",
+    "C:\\Users\\Owner\\.nuget\\packages\\microsoft.extensions.options\\3.0.0\\microsoft.extensions.options.3.0.0.nupkg.sha512",
+    "C:\\Users\\Owner\\.nuget\\packages\\microsoft.extensions.primitives\\3.0.0\\microsoft.extensions.primitives.3.0.0.nupkg.sha512",
     "C:\\Users\\Owner\\.nuget\\packages\\system.reflection.emit\\4.7.0\\system.reflection.emit.4.7.0.nupkg.sha512"
   ],
   "logs": []

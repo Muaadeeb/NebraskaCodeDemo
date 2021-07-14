@@ -120,7 +120,7 @@ using Blazored.TextEditor;
         }
         #pragma warning restore 1998
 #nullable restore
-#line 108 "C:\Users\Owner\source\repos\NebraskaCodeDemo\BlazorClient\Pages\Books\BookUpsert.razor"
+#line 107 "C:\Users\Owner\source\repos\NebraskaCodeDemo\BlazorClient\Pages\Books\BookUpsert.razor"
        
 
     [Parameter]
@@ -169,7 +169,7 @@ using Blazored.TextEditor;
             {
                 await Task.Delay(10);
                 loading = true;
-                
+
                 await _jsRunTime.ToastrError("Possible issue with loading html text content - worry if you keep seeing this popup.");
             }
         }
@@ -181,12 +181,15 @@ using Blazored.TextEditor;
         {
             var result = await _bookService.GetBooksBySearchValueAsync(BookDto.Title);
 
-            var bookTitle = result.FirstOrDefault(x => x.Title == BookDto.Title).Title;
-
-            if (!string.IsNullOrEmpty(bookTitle))
+            if (result.Any())
             {
-                await _jsRunTime.ToastrError("A book with this title already exisits.");
-                return;
+                var bookTitle = result.FirstOrDefault(x => x.Title == BookDto.Title).Title;
+
+                if (!string.IsNullOrEmpty(bookTitle))
+                {
+                    await _jsRunTime.ToastrError("A book with this title already exisits.");
+                    return;
+                }
             }
 
             BookDto.Comments = await QuillHtml.GetHTML();
@@ -222,7 +225,7 @@ using Blazored.TextEditor;
             // log exception
         }
 
-        _navigationManager.NavigateTo("book");
+        _navigationManager.NavigateTo("book-list");
     }
 
 #line default

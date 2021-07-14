@@ -23,11 +23,6 @@
                         <ValidationMessage For="()=> BookDto.AuthorFirstName"></ValidationMessage>
                     </div>
                     <div class="form-group">
-                        <label>Author Middle Name</label>
-                        <InputText @bind-Value="BookDto.AuthorMiddleName" class="form-control" />
-                        <ValidationMessage For="()=> BookDto.AuthorMiddleName"></ValidationMessage>
-                    </div>
-                    <div class="form-group">
                         <label>Author Last Name</label>
                         <InputText @bind-Value="BookDto.AuthorLastName" class="form-control" />
                         <ValidationMessage For="()=> BookDto.AuthorLastName"></ValidationMessage>
@@ -73,8 +68,6 @@
                             </BlazoredTextEditor>
                         </div>
                     </div>
-                    @*CategoryId, SubCategoryId*@
-
                     <div class="form-group">
                         <label>Print Length</label>
                         <InputNumber @bind-Value="BookDto.PrintLength" class="form-control" />
@@ -88,7 +81,7 @@
 
                     <div class="form-group">
                         <label>Publication Date</label>
-                        <InputDate @bind-Value="BookDto.PublicationDate" class="form-control" />
+                        <InputDate type="text" class="form-control" @bind-Value="BookDto.PublicationDate" min="@DateTime.Now.AddYears(-10).ToString("yyy-MM-dd")" />
                         <ValidationMessage For="()=> BookDto.PublicationDate"></ValidationMessage>
                     </div>
 
@@ -98,6 +91,12 @@
                         <ValidationMessage For="()=> BookDto.ISBN"></ValidationMessage>
                     </div>
                     @*DDL?*@
+
+                    <div class="form-group">
+                        <button class="btn btn-primary">@Title Book </button>
+                        <NavLink href="book-list" class="btn btn-secondary">Back to the library</NavLink>
+                    </div>
+
                 </EditForm>
             </div>
         </div>
@@ -153,7 +152,7 @@
             {
                 await Task.Delay(10);
                 loading = true;
-                
+
                 await _jsRunTime.ToastrError("Possible issue with loading html text content - worry if you keep seeing this popup.");
             }
         }
@@ -165,12 +164,15 @@
         {
             var result = await _bookService.GetBooksBySearchValueAsync(BookDto.Title);
 
-            var bookTitle = result.FirstOrDefault(x => x.Title == BookDto.Title).Title;
-
-            if (!string.IsNullOrEmpty(bookTitle))
+            if (result.Any())
             {
-                await _jsRunTime.ToastrError("A book with this title already exisits.");
-                return;
+                var bookTitle = result.FirstOrDefault(x => x.Title == BookDto.Title).Title;
+
+                if (!string.IsNullOrEmpty(bookTitle))
+                {
+                    await _jsRunTime.ToastrError("A book with this title already exisits.");
+                    return;
+                }
             }
 
             BookDto.Comments = await QuillHtml.GetHTML();
@@ -206,7 +208,7 @@
             // log exception
         }
 
-        _navigationManager.NavigateTo("book");
+        _navigationManager.NavigateTo("book-list");
     }
 }
 

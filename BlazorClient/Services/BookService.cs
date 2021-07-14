@@ -23,7 +23,7 @@ namespace BlazorClient.Services
         {
             var id = 1;
             JsonContent content = JsonContent.Create(book);
-            HttpResponseMessage response = await _httpClient.PostAsync($"/api/book/createbook/{id}", content);
+            HttpResponseMessage response = await _httpClient.PutAsync($"/api/book/createbook/{id}", content);
             return 0;
         }
 
@@ -42,7 +42,7 @@ namespace BlazorClient.Services
 
         public async Task<IEnumerable<BookDTO>> GetBooksBySearchValueAsync(string bookSearchValue)
         {
-            var response = await _httpClient.GetAsync($"/api/book/searchvalue/{bookSearchValue}");
+            var response = await _httpClient.GetAsync($"/api/book/searchvalue?bookSearchValue={bookSearchValue}");
             return await BookMapping(response);
         }
 

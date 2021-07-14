@@ -4,7 +4,7 @@
 #pragma warning disable 0649
 #pragma warning disable 0169
 
-namespace BlazorClient.Pages.Books
+namespace BlazorClient.Shared
 {
     #line hidden
     using System;
@@ -110,8 +110,7 @@ using Blazored.TextEditor;
 #line default
 #line hidden
 #nullable disable
-    [Microsoft.AspNetCore.Components.RouteAttribute("/book-list")]
-    public partial class BookList : Microsoft.AspNetCore.Components.ComponentBase
+    public partial class DeleteConfirmation : Microsoft.AspNetCore.Components.ComponentBase
     {
         #pragma warning disable 1998
         protected override void BuildRenderTree(Microsoft.AspNetCore.Components.Rendering.RenderTreeBuilder __builder)
@@ -119,46 +118,35 @@ using Blazored.TextEditor;
         }
         #pragma warning restore 1998
 #nullable restore
-#line 77 "C:\Users\Owner\source\repos\NebraskaCodeDemo\BlazorClient\Pages\Books\BookList.razor"
+#line 38 "C:\Users\Owner\source\repos\NebraskaCodeDemo\BlazorClient\Shared\DeleteConfirmation.razor"
        
-    public string AuthorName { get; set; } = string.Empty;
-    private IEnumerable<BookDTO> Books { get; set; } = new List<BookDTO>();
-    private int DeleteBookId { get; set; }
-    private bool IsProcessing { get; set; } = false;
 
-    protected override async Task OnInitializedAsync()
+    [Parameter]
+    public EventCallback<bool> ConfirmationChanged { get; set; }
+
+    [Parameter]
+    public bool IsParentComponentProcessing { get; set; }
+
+    public bool IsProcessStart { get; set; } = false;
+
+    protected override void OnParametersSet()
     {
-        Books = await _bookService.GetAllBooksAsync();
+        IsProcessStart = IsParentComponentProcessing;
     }
 
-    private async Task HandleDelete(int bookId)
+    protected async Task OnConfirmationChange(bool value)
     {
-        DeleteBookId = bookId;
-        await _jsRunTime.InvokeVoidAsync("ShowDeleteConfirmationModal");
-    }
-
-    public async Task ConfirmDelete_Click(bool isConfirmed)
-    {
-        IsProcessing = true;
-        if (isConfirmed && DeleteBookId != null)
+        if (value)
         {
-            //BookDTO bookDto = await _bookService.GetBookByBookIdAsync(DeleteBookId);
-
-            await _bookService.DeleteBookAsync(DeleteBookId);
-            await _jsRunTime.ToastrSuccess("Book deleted successfully");
-            Books = await _bookService.GetAllBooksAsync();
+            IsProcessStart = true;
         }
 
-        await _jsRunTime.InvokeVoidAsync("HideDeleteConfirmationModal");
-        IsProcessing = false;
+        await ConfirmationChanged.InvokeAsync(value);
     }
 
 #line default
 #line hidden
 #nullable disable
-        [global::Microsoft.AspNetCore.Components.InjectAttribute] private IJSRuntime _jsRunTime { get; set; }
-        [global::Microsoft.AspNetCore.Components.InjectAttribute] private NavigationManager _navigationManager { get; set; }
-        [global::Microsoft.AspNetCore.Components.InjectAttribute] private IBookService _bookService { get; set; }
     }
 }
 #pragma warning restore 1591

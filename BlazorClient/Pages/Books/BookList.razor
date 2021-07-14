@@ -38,17 +38,6 @@
                                 {
                                     AuthorName = @book.AuthorFirstName;
                                 }
-                                @if (!string.IsNullOrEmpty(@book.AuthorMiddleName))
-                                {
-                                    @if (string.IsNullOrEmpty(AuthorName))
-                                    {
-                                        AuthorName = @book.AuthorMiddleName;
-                                    }
-                                    else
-                                    {
-                                        AuthorName += " " + @book.AuthorMiddleName;
-                                    }
-                                }
                                 @if (!string.IsNullOrEmpty(@book.AuthorLastName))
                                 {
                                     @if (string.IsNullOrEmpty(AuthorName))
@@ -60,6 +49,8 @@
                                         AuthorName += " " + @book.AuthorLastName;
                                     }
                                 }
+                                
+                                @((MarkupString)AuthorName)
                             </td>
                             <td>@book.PrintLength</td>
                             <td>@book.ReviewRating</td>
@@ -73,7 +64,7 @@
                 else
                 {
                     <tr>
-                        <td colspan="5">No reccords found</td>
+                        <td colspan="5">No records found</td>
                     </tr>
                 }
             </tbody>
@@ -81,14 +72,13 @@
     </div>
 </div>
 
-@*<DeleteConfirmation IsParentComponentProcessing="IsProcessing" ConfirmationChanged="ConfirmDelete_Click"></DeleteConfirmation>*@
-
+<DeleteConfirmation IsParentComponentProcessing="IsProcessing" ConfirmationChanged="ConfirmDelete_Click"></DeleteConfirmation>
 
 @code {
+    public string AuthorName { get; set; } = string.Empty;
     private IEnumerable<BookDTO> Books { get; set; } = new List<BookDTO>();
     private int DeleteBookId { get; set; }
     private bool IsProcessing { get; set; } = false;
-    private string AuthorName { get; set; } = string.Empty;
 
     protected override async Task OnInitializedAsync()
     {

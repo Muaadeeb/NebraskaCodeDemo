@@ -5,10 +5,9 @@ using System.Text;
 using System.Threading.Tasks;
 using AutoMapper;
 using Common.Models;
-using ModelDTOs;
 using NebraskaCodeDataLibraryDemo.Db.Models;
 
-namespace Common.AutoMapper
+namespace DataAccess.AutoMapper
 {
     public class MappingProfile : Profile
     {
@@ -16,10 +15,6 @@ namespace Common.AutoMapper
         {
             CreateMap<BookModel, Book>();
             CreateMap<Book, BookModel>();
-            CreateMap<BookDTO, Book>();
-            CreateMap<Book, BookDTO>();
-
-            CreateMap<BookDTO, Book>().ReverseMap();
             CreateMap<Book, BookModel>().ReverseMap();
         }
     }

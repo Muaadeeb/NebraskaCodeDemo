@@ -16,12 +16,6 @@ namespace ModelDTOs
 
         public string AuthorLastName { get; set; }
 
-        public string AuthorMiddleName { get; set; }
-
-        public int CategoryId { get; set; }
-
-        public int SubCategoryId { get; set; }
-
         public int PrintLength { get; set; }
 
         public string Publisher { get; set; }
@@ -33,14 +27,18 @@ namespace ModelDTOs
         public Decimal ReviewRating { get; set; }
 
         public string Comments { get; set; }
+        //public string AuthorMiddleName { get; set; }
 
-        public string CreatedUser { get; set; }
+        //public int CategoryId { get; set; }
 
-        public string UpdatedUser { get; set; }
+        //public int SubCategoryId { get; set; }
 
-        public DateTime CreatedDate { get; set; }
+        //public string CreatedUser { get; set; }
 
-        public DateTime UpdatedDate { get; set; }
+        //public string UpdatedUser { get; set; }
 
+        //public DateTime CreatedDate { get; set; }
+
+        //public DateTime UpdatedDate { get; set; }
 	}
 }
