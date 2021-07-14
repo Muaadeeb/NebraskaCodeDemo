@@ -1,0 +1,247 @@
+﻿@page "/book/create"
+@page "/book/edit/{Id:int}"
+
+@inject NavigationManager _navigationManager;
+@inject IBookService _bookService;
+@inject IJSRuntime _jsRunTime;
+
+<div class="row mt-2 mb-5">
+    <h3 class="card-title text-info mb-3 ml-3">@Title Book</h3>
+    <div class="col-md-12">
+        <div class="card">
+            <div class="card-body">
+                <EditForm Model="BookDto" OnValidSubmit="HandleBookUpsert">
+                    <DataAnnotationsValidator></DataAnnotationsValidator>
+                    <div class="form-group">
+                        <label>Title</label>
+                        <InputText @bind-Value="BookDto.Title" class="form-control" />
+                        <ValidationMessage For="()=> BookDto.Title"></ValidationMessage>
+                    </div>
+                    <div class="form-group">
+                        <label>Author First Name</label>
+                        <InputText @bind-Value="BookDto.AuthorFirstName" class="form-control" />
+                        <ValidationMessage For="()=> BookDto.AuthorFirstName"></ValidationMessage>
+                    </div>
+                    <div class="form-group">
+                        <label>Author Middle Name</label>
+                        <InputText @bind-Value="BookDto.AuthorMiddleName" class="form-control" />
+                        <ValidationMessage For="()=> BookDto.AuthorMiddleName"></ValidationMessage>
+                    </div>
+                    <div class="form-group">
+                        <label>Author Last Name</label>
+                        <InputText @bind-Value="BookDto.AuthorLastName" class="form-control" />
+                        <ValidationMessage For="()=> BookDto.AuthorLastName"></ValidationMessage>
+                    </div>
+                    <div class="form-group">
+                        <label>Review Rating</label>
+                        <InputNumber @bind-Value="BookDto.ReviewRating" class="form-control" />
+                        <ValidationMessage For="()=> BookDto.ReviewRating"></ValidationMessage>
+                    </div>
+                    <div style="margin-bottom: 100px">
+                        <div class="form-group" style="height: 250px;">
+                            <label>Your summary / comments about the book</label>
+                            <BlazoredTextEditor @ref="@QuillHtml" Placeholder="Please enter room details">
+                                <ToolbarContent>
+                                    <select class="ql-header">
+                                        <option selected=""></option>
+                                        <option value="1"></option>
+                                        <option value="2"></option>
+                                        <option value="3"></option>
+                                        <option value="4"></option>
+                                        <option value="5"></option>
+                                    </select>
+                                    <span class="ql-formats">
+                                        <button class="ql-bold"></button>
+                                        <button class="ql-italic"></button>
+                                        <button class="ql-underline"></button>
+                                        <button class="ql-strike"></button>
+                                    </span>
+                                    <span class="ql-formats">
+                                        <select class="ql-color"></select>
+                                        <select class="ql-background"></select>
+                                    </span>
+                                    <span class="ql-formats">
+                                        <button class="ql-list" value="ordered"></button>
+                                        <button class="ql-list" value="bullet"></button>
+                                    </span>
+                                    <span class="ql-formats">
+                                        <button class="ql-link"></button>
+                                    </span>
+                                </ToolbarContent>
+                                <EditorContent>
+                                </EditorContent>
+                            </BlazoredTextEditor>
+                        </div>
+                    </div>
+                    @*CategoryId, SubCategoryId*@
+
+                    <div class="form-group">
+                        <label>Print Length</label>
+                        <InputNumber @bind-Value="BookDto.PrintLength" class="form-control" />
+                        <ValidationMessage For="()=> BookDto.PrintLength"></ValidationMessage>
+                    </div>
+                    <div class="form-group">
+                        <label>Publisher</label>
+                        <InputText @bind-Value="BookDto.Publisher" class="form-control" />
+                        <ValidationMessage For="()=> BookDto.Publisher"></ValidationMessage>
+                    </div>
+
+                    <div class="form-group">
+                        <label>Publication Date</label>
+                        <InputDate @bind-Value="BookDto.PublicationDate" class="form-control" />
+                        <ValidationMessage For="()=> BookDto.PublicationDate"></ValidationMessage>
+                    </div>
+
+                    <div class="form-group">
+                        <label>ISBN</label>
+                        <InputNumber @bind-Value="BookDto.ISBN" class="form-control" />
+                        <ValidationMessage For="()=> BookDto.ISBN"></ValidationMessage>
+                    </div>
+                    @*DDL?*@
+                </EditForm>
+            </div>
+        </div>
+
+    </div>
+</div>
+
+@code {
+
+    [Parameter]
+    public int? Id { get; set; }
+
+    private BookDTO BookDto { get; set; } = new BookDTO();
+    private string Title { get; set; } = "Create";
+
+    public BlazoredTextEditor QuillHtml { get; set; } = new BlazoredTextEditor();
+
+
+    protected async override Task OnInitializedAsync()
+    {
+        if (Id != null)
+        {
+            Title = "Update";
+            BookDto = (BookDTO)await _bookService.GetBookByBookIdAsync(Id.Value);
+        }
+        else
+        {
+            Title = "Create";
+            BookDto = new BookDTO();
+        }
+    }
+
+    protected override async Task OnAfterRenderAsync(bool firstRender)
+    {
+        if (!firstRender)
+        {
+            return;
+        }
+
+        bool loading = true;
+        while (loading)
+        {
+            try
+            {
+                if (!string.IsNullOrEmpty(BookDto.Comments))
+                {
+                    await QuillHtml.LoadHTMLContent(BookDto.Comments);
+                }
+
+                loading = false;
+            }
+            catch
+            {
+                await Task.Delay(10);
+                loading = true;
+                
+                await _jsRunTime.ToastrError("Possible issue with loading html text content - worry if you keep seeing this popup.");
+            }
+        }
+    }
+
+    private async Task HandleBookUpsert()
+    {
+        try
+        {
+            var result = await _bookService.GetBooksBySearchValueAsync(BookDto.Title);
+
+            var bookTitle = result.FirstOrDefault(x => x.Title == BookDto.Title).Title;
+
+            if (!string.IsNullOrEmpty(bookTitle))
+            {
+                await _jsRunTime.ToastrError("A book with this title already exisits.");
+                return;
+            }
+
+            BookDto.Comments = await QuillHtml.GetHTML();
+            if (BookDto.BookId != 0 && Title == "Update")
+            {
+                var updateResult = await _bookService.UpdateBookAsync(BookDto);
+
+                if (updateResult == 0)
+                {
+                    await _jsRunTime.ToastrSuccess("Book updated successfully.");
+                }
+                else
+                {
+                    await _jsRunTime.ToastrSuccess("Something went wrong.  Book was not successfully updated, try again.");
+                }
+
+            }
+            else
+            {
+                var createdResult = await _bookService.CreateBookAsync(BookDto);
+                if (createdResult == 0)
+                {
+                    await _jsRunTime.ToastrSuccess("Book created successfully.");
+                }
+                else
+                {
+                    await _jsRunTime.ToastrSuccess("Something went wrong.  Book was not successfully created, try again.");
+                }
+            }
+        }
+        catch (Exception ex)
+        {
+            // log exception
+        }
+
+        _navigationManager.NavigateTo("book");
+    }
+}
+
+
+@*<h3>CreateBook</h3>
+
+    @if (Books != null && Books.Any())
+    {
+
+        <p>Here is your book listing.</p>
+    }
+    else
+    {
+        <p>No Books found.</p>
+    }*@
+
+
+@*@code {
+
+        //public IEnumerable<BookDTO> Books { get; set; } = new List<BookDTO>();
+
+        //protected override async Task OnInitializedAsync()
+        //{
+        //    await LoadBooksAsync();
+        //}
+
+        //private async Task LoadBooksAsync()
+        //{
+        //    try
+        //    {
+        //        Books = await _bookService.GetAllBooksAsync();
+        //    }
+        //    catch (Exception ex)
+        //    {
+        //        throw new Exception("Something bad happened here: " + ex.Message);
+        //    }
+        //}
+    }*@

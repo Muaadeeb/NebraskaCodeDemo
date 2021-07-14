@@ -639,3 +639,10 @@ C:\Users\Owner\source\repos\NebraskaCodeDemo\BlazorClient\obj\Debug\net5.0\build
 C:\Users\Owner\source\repos\NebraskaCodeDemo\BlazorClient\obj\Debug\net5.0\build-gz\rUr54q2Q.gz
 C:\Users\Owner\source\repos\NebraskaCodeDemo\BlazorClient\obj\Debug\net5.0\build-gz\YzNtFN4s.gz
 C:\Users\Owner\source\repos\NebraskaCodeDemo\BlazorClient\obj\Debug\net5.0\build-gz\dtPjQ5QW.gz
+C:\Users\Owner\source\repos\NebraskaCodeDemo\BlazorClient\obj\Debug\net5.0\RazorDeclaration\Pages\Books\BookUpsert.razor.g.cs
+C:\Users\Owner\source\repos\NebraskaCodeDemo\BlazorClient\bin\Debug\net5.0\wwwroot\_framework\Blazored.TextEditor.dll.gz
+C:\Users\Owner\source\repos\NebraskaCodeDemo\BlazorClient\bin\Debug\net5.0\wwwroot\_framework\Blazored.TextEditor.dll
+C:\Users\Owner\source\repos\NebraskaCodeDemo\BlazorClient\obj\Debug\net5.0\RazorDeclaration\Pages\Books\BookList.razor.g.cs
+C:\Users\Owner\source\repos\NebraskaCodeDemo\BlazorClient\obj\Debug\net5.0\Razor\Pages\Books\BookList.razor.g.cs
+C:\Users\Owner\source\repos\NebraskaCodeDemo\BlazorClient\obj\Debug\net5.0\Razor\Pages\Books\BookUpsert.razor.g.cs
+C:\Users\Owner\source\repos\NebraskaCodeDemo\BlazorClient\obj\Debug\net5.0\build-gz\gjMcJvTq.gz

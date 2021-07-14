@@ -96,8 +96,20 @@ using BlazorClient.Services.Interfaces;
 #line default
 #line hidden
 #nullable disable
-    [Microsoft.AspNetCore.Components.RouteAttribute("/books/getallbooks")]
-    [Microsoft.AspNetCore.Components.RouteAttribute("/getallbooks")]
+#nullable restore
+#line 14 "C:\Users\Owner\source\repos\NebraskaCodeDemo\BlazorClient\_Imports.razor"
+using BlazorClient.Helper;
+
+#line default
+#line hidden
+#nullable disable
+#nullable restore
+#line 15 "C:\Users\Owner\source\repos\NebraskaCodeDemo\BlazorClient\_Imports.razor"
+using Blazored.TextEditor;
+
+#line default
+#line hidden
+#nullable disable
     public partial class GetAllBooks : Microsoft.AspNetCore.Components.ComponentBase
     {
         #pragma warning disable 1998
@@ -105,33 +117,6 @@ using BlazorClient.Services.Interfaces;
         {
         }
         #pragma warning restore 1998
-#nullable restore
-#line 19 "C:\Users\Owner\source\repos\NebraskaCodeDemo\BlazorClient\Pages\Books\GetAllBooks.razor"
-       
-
-    public IEnumerable<BookDTO> Books { get; set; } = new List<BookDTO>();
-
-    protected override async Task OnInitializedAsync()
-    {
-        await LoadBooksAsync();
-    }
-
-    private async Task LoadBooksAsync()
-    {
-        try
-        {
-            Books = await _bookService.GetAllBooksAsync();
-        }
-        catch (Exception ex)
-        {
-            throw new Exception("Something bad happened here: " + ex.Message);
-        }
-    }
-
-#line default
-#line hidden
-#nullable disable
-        [global::Microsoft.AspNetCore.Components.InjectAttribute] private IBookService _bookService { get; set; }
     }
 }
 #pragma warning restore 1591

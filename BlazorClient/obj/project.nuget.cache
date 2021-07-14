@@ -1,9 +1,10 @@
 {
   "version": 2,
-  "dgSpecHash": "KJY6KTMBbPwNd43xGE4bYSrgFurF7ZO0ro26a//mQPXC0UR0NTfrTvCTExObT4ZCFPBROhEDagm5I7yPxDZ+Dw==",
+  "dgSpecHash": "opnOqiCMof1bk+PnPUN2OnQypnhiGdR7fDXGQPEvRVHUWixUj/ZlIY3fbfeJT4VfHE59g/ApeopJpAsHGdb8hA==",
   "success": true,
   "projectFilePath": "C:\\Users\\Owner\\source\\repos\\NebraskaCodeDemo\\BlazorClient\\BlazorClient.csproj",
   "expectedPackageFiles": [
+    "C:\\Users\\Owner\\.nuget\\packages\\blazored.texteditor\\1.0.3\\blazored.texteditor.1.0.3.nupkg.sha512",
     "C:\\Users\\Owner\\.nuget\\packages\\microsoft.aspnetcore.authorization\\5.0.8\\microsoft.aspnetcore.authorization.5.0.8.nupkg.sha512",
     "C:\\Users\\Owner\\.nuget\\packages\\microsoft.aspnetcore.components\\5.0.8\\microsoft.aspnetcore.components.5.0.8.nupkg.sha512",
     "C:\\Users\\Owner\\.nuget\\packages\\microsoft.aspnetcore.components.analyzers\\5.0.8\\microsoft.aspnetcore.components.analyzers.5.0.8.nupkg.sha512",

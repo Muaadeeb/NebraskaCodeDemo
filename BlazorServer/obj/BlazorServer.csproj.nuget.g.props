@@ -15,4 +15,7 @@
   <PropertyGroup>
     <MSBuildAllProjects>$(MSBuildAllProjects);$(MSBuildThisFileFullPath)</MSBuildAllProjects>
   </PropertyGroup>
+  <ImportGroup Condition=" '$(ExcludeRestorePackageImports)' != 'true' ">
+    <Import Project="$(NuGetPackageRoot)blazored.texteditor\1.0.3\buildTransitive\Blazored.TextEditor.props" Condition="Exists('$(NuGetPackageRoot)blazored.texteditor\1.0.3\buildTransitive\Blazored.TextEditor.props')" />
+  </ImportGroup>
 </Project>

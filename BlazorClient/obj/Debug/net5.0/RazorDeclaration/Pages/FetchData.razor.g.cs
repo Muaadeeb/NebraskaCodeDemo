@@ -96,6 +96,20 @@ using BlazorClient.Services.Interfaces;
 #line default
 #line hidden
 #nullable disable
+#nullable restore
+#line 14 "C:\Users\Owner\source\repos\NebraskaCodeDemo\BlazorClient\_Imports.razor"
+using BlazorClient.Helper;
+
+#line default
+#line hidden
+#nullable disable
+#nullable restore
+#line 15 "C:\Users\Owner\source\repos\NebraskaCodeDemo\BlazorClient\_Imports.razor"
+using Blazored.TextEditor;
+
+#line default
+#line hidden
+#nullable disable
     [Microsoft.AspNetCore.Components.RouteAttribute("/fetchdata")]
     public partial class FetchData : Microsoft.AspNetCore.Components.ComponentBase
     {

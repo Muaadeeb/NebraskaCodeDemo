@@ -32,6 +32,8 @@ namespace ModelDTOs
 
         public Decimal ReviewRating { get; set; }
 
+        public string Comments { get; set; }
+
         public string CreatedUser { get; set; }
 
         public string UpdatedUser { get; set; }
