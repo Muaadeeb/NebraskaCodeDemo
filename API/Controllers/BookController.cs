@@ -5,9 +5,7 @@ using System.Threading.Tasks;
 using Business.Interfaces;
 using Common.Models;
 using Microsoft.AspNetCore.Mvc;
-
 using Microsoft.AspNetCore.Http;
-using System.Globalization;
 using ModelDTOs;
 
 namespace API.Controllers
@@ -56,22 +54,53 @@ namespace API.Controllers
             return Ok(result);
         }
 
-        //[HttpPost("updatebook")]
-        //public async Task<int> UpdateBookAsync([FromBody] Book book)
-        //{
-        //    return await _bookManager.UpdateBookAsync(book);
-        //}
-
         [HttpPost("updatebook")]
-        public async Task<int> UpdateBookAsync([FromBody] Book book)
+        //public async Task<int> UpdateBookAsync([FromBody] Book book)
+        public async Task<IActionResult> UpdateBookAsync([FromBody] Book book)
         {
-            return await _bookManager.UpdateBookAsync(book);
+            try
+            {
+                var result = await _bookManager.UpdateBookAsync(book);
+                if (result == 0)
+                {
+                    return Ok(StatusCodes.Status200OK);
+                }
+
+                return BadRequest(StatusCodes.Status400BadRequest);
+            }
+            catch (Exception ex)
+            {
+                return BadRequest(new ErrorModel()
+                {
+                    Title = "Book Controller",
+                    ErrorMessage = $"Update Book had an error - {ex.Message}",
+                    StatusCode = StatusCodes.Status500InternalServerError
+                });
+            }
         }
 
-        [HttpPut("createbook/{id}")]
-        public async Task<int> CreateBook(int id, [FromBody] Book book)
+        [HttpPut("createbook")]
+        public async Task<IActionResult> CreateBook([FromBody] Book book)
         {
-            return await _bookManager.CreateBookAsync(book);
+            try
+            {
+                var result = await _bookManager.CreateBookAsync(book);
+                if (result == 0)
+                {
+                    return Ok(StatusCodes.Status201Created);
+                }
+
+                return BadRequest(StatusCodes.Status400BadRequest);
+            }
+            catch (Exception ex)
+            {
+                return BadRequest(new ErrorModel()
+                {
+                    Title = "Book Controller",
+                    ErrorMessage = $"Create Book had an error - {ex.Message}",
+                    StatusCode = StatusCodes.Status500InternalServerError
+                });
+            }
         }
 
         [HttpDelete("deletebookbybookid")]

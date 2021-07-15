@@ -2,6 +2,8 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using BlazorServer.Services;
+using BlazorServer.Services.Interfaces;
 using Business;
 using Business.Interfaces;
 using DataAccess;
@@ -48,6 +50,8 @@ namespace BlazorServer
             services.AddScoped<IBookManager, BookManager>();
             services.AddScoped<IBookRepository, BookRepository>();
             services.AddScoped<IBookData, BookData>();
+            services.AddScoped<IBookService, BookService>();
+
 
             services.AddCors(x => x.AddPolicy("NebraskaCodeDemo", builder =>
             {

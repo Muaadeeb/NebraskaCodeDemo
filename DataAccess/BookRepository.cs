@@ -27,7 +27,8 @@ namespace DataAccess
             try
             {
                 BookModel bookModel = _mapper.Map<Book, BookModel>(book);
-                return await _bookData.CreateBookAsync(bookModel);
+                await _bookData.CreateBookAsync(bookModel);
+                return 0;
             }
             catch(Exception ex)
             {
@@ -37,32 +38,68 @@ namespace DataAccess
 
         public async Task<int> UpdateBookAsync(Book book)
         {
-            var bookModel = _mapper.Map<Book, BookModel>(book);
-            return await _bookData.UpdateBookAsync(bookModel);
+            try
+            {
+                var bookModel = _mapper.Map<Book, BookModel>(book);
+                await _bookData.UpdateBookAsync(bookModel);
+                return 0;
+            }
+            catch (Exception ex)
+            {
+                throw new Exception(ex.Message);
+            }
         }
 
         public async Task<int> DeleteBookAsync(int bookId)
         {
-            var result = await _bookData.DeleteBookAsync(bookId);
-            return result;
+            try
+            {
+                await _bookData.DeleteBookAsync(bookId);
+                return 0;
+            }
+            catch (Exception ex)
+            {
+                throw new Exception(ex.Message);
+            }
         }
 
         public async Task<IEnumerable<Book>> GetBooksBySearchValueAsync(string searchValue)
         {
-            IEnumerable<Book> books = _mapper.Map<IEnumerable<BookModel>, IEnumerable<Book>>(await _bookData.GetBooksBySearchValueAsync(searchValue));
-            return books;
+            try
+            {
+                IEnumerable<Book> books = _mapper.Map<IEnumerable<BookModel>, IEnumerable<Book>>(await _bookData.GetBooksBySearchValueAsync(searchValue));
+                return books;
+            }
+            catch (Exception ex)
+            {
+                throw new Exception(ex.Message);
+            }
         }
 
         public async Task<IEnumerable<Book>> GetBookByBookIdAsync(int bookId)
         {
-            IEnumerable<Book> book = _mapper.Map<IEnumerable<BookModel>, IEnumerable<Book>>(await _bookData.GetBookByBookIdAsync(bookId));
-            return book;
+            try
+            {
+                IEnumerable<Book> book = _mapper.Map<IEnumerable<BookModel>, IEnumerable<Book>>(await _bookData.GetBookByBookIdAsync(bookId));
+                return book;
+            }
+            catch (Exception ex)
+            {
+                throw new Exception(ex.Message);
+            }
         }
 
         public async Task<IEnumerable<Book>> GetAllBooksAsync()
         {
-            IEnumerable<Book> books = _mapper.Map<IEnumerable<BookModel>, IEnumerable<Book>>(await _bookData.GetAllBooksAsync());
-            return books;
+            try
+            {
+                IEnumerable<Book> books = _mapper.Map<IEnumerable<BookModel>, IEnumerable<Book>>(await _bookData.GetAllBooksAsync());
+                return books;
+            }
+            catch (Exception ex)
+            {
+                throw new Exception(ex.Message);
+            }
         }
-	}
+    }
 }

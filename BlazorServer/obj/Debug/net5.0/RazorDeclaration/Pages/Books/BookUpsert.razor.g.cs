@@ -164,10 +164,10 @@ using Blazored.TextEditor;
             }
             catch
             {
-                await Task.Delay(10);
+                //await Task.Delay(10);
                 loading = true;
 
-                await _jsRunTime.ToastrError("Possible issue with loading html text content - worry if you keep seeing this popup.");
+                //await _jsRunTime.ToastrError("Possible issue with loading html text content - worry if you keep seeing this popup.");
             }
         }
     }
@@ -204,8 +204,8 @@ using Blazored.TextEditor;
             if (BookDto.BookId != 0 && Title == "Update")
             {
                 var updateResult = await _bookService.UpdateBookAsync(BookDto);
-
-                if (updateResult == 0)
+                
+                if (updateResult != 0)
                 {
                     await _jsRunTime.ToastrSuccess("Book updated successfully.");
                 }
