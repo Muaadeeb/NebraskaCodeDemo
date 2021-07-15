@@ -118,7 +118,7 @@ using Blazored.TextEditor;
         }
         #pragma warning restore 1998
 #nullable restore
-#line 38 "C:\Users\Owner\source\repos\NebraskaCodeDemo\BlazorClient\Shared\DeleteConfirmation.razor"
+#line 36 "C:\Users\Owner\source\repos\NebraskaCodeDemo\BlazorClient\Shared\DeleteConfirmation.razor"
        
 
     [Parameter]

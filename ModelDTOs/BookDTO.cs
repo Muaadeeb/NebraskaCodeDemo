@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.ComponentModel.DataAnnotations;
 
 namespace ModelDTOs
 {
@@ -10,10 +11,13 @@ namespace ModelDTOs
 	{
         public int BookId { get; set; }
 
+        [Required(ErrorMessage = "Please enter a title")]
         public string Title { get; set; }
 
+        [Required(ErrorMessage = "Please enter the author's first name")]
         public string AuthorFirstName { get; set; }
 
+        [Required(ErrorMessage = "Please enter the author's last name")]
         public string AuthorLastName { get; set; }
 
         public int PrintLength { get; set; }
@@ -23,8 +27,8 @@ namespace ModelDTOs
         public DateTime PublicationDate { get; set; }
 
         public int ISBN { get; set; }
-
-        public Decimal ReviewRating { get; set; }
+        [Range(1, 10, ErrorMessage = "Rate between 1 (low) and 10 (high)")]
+        public int ReviewRating { get; set; }
 
         public string Comments { get; set; }
         //public string AuthorMiddleName { get; set; }

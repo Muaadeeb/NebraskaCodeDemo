@@ -1,0 +1,112 @@
+﻿@page "/book-list"
+
+
+@using BlazorServer.Shared
+
+@inject IBookService _bookService;
+@inject NavigationManager _navigationManager;
+@inject IJSRuntime _jsRunTime;
+
+<h3>GetAllBooks</h3>
+<div class="row mt-4">
+    <div class="col">
+        <h4 class="card-title text-info">Your Book Library</h4>
+    </div>
+    <div class="col-3 offset-1">
+        <NavLink href="book/create" class="btn btn-info form-control">Add New Book</NavLink>
+    </div>
+</div>
+
+<div class="row mt-4">
+    <div class="col-12">
+        <table class="table table-bordered table-hover">
+            <thead>
+                <tr>
+                    <th>Title</th>
+                    <th>Author</th>
+                    <th># of Pages</th>
+                    <th>Review Rating</th>
+                    <th></th>
+                </tr>
+            </thead>
+            <tbody>
+                @if (Books.Any())
+                {
+                    foreach (var book in Books)
+                    {
+                        <tr>
+                            <td>@book.Title</td>
+                            <td>
+                                @if (!string.IsNullOrEmpty(@book.AuthorFirstName))
+                                {
+                                    AuthorName = @book.AuthorFirstName;
+                                }
+                                @if (!string.IsNullOrEmpty(@book.AuthorLastName))
+                                {
+                                    @if (string.IsNullOrEmpty(AuthorName))
+                                    {
+                                        AuthorName = @book.AuthorLastName;
+                                    }
+                                    else
+                                    {
+                                        AuthorName += " " + @book.AuthorLastName;
+                                    }
+                                }
+
+                                @((MarkupString)AuthorName)
+                            </td>
+                            <td>@book.PrintLength</td>
+                            <td>@book.ReviewRating</td>
+                            <td>
+                                <NavLink href="@($"book/edit/{book.BookId}")" class="btn btn-primary">Edit</NavLink>
+                                <button class="btn btn-danger" @onclick="()=>HandleDelete(book.BookId)">Delete</button>
+                            </td>
+                        </tr>
+                    }
+                }
+                else
+                {
+                    <tr>
+                        <td colspan="5">No records found</td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    </div>
+</div>
+
+<DeleteConfirmation IsParentComponentProcessing="IsProcessing" ConfirmationChanged="ConfirmDelete_Click"></DeleteConfirmation>
+
+@code {
+    public string AuthorName { get; set; } = string.Empty;
+    private IEnumerable<BookDTO> Books { get; set; } = new List<BookDTO>();
+    private int DeleteBookId { get; set; }
+    private bool IsProcessing { get; set; } = false;
+
+    protected override async Task OnInitializedAsync()
+    {
+        Books = await _bookService.GetAllBooksAsync();
+    }
+
+    private async Task HandleDelete(int bookId)
+    {
+        DeleteBookId = bookId;
+        await _jsRunTime.InvokeVoidAsync("ShowDeleteConfirmationModal");
+    }
+
+    public async Task ConfirmDelete_Click(bool isConfirmed)
+    {
+        IsProcessing = true;
+        if (isConfirmed && DeleteBookId != null)
+        {
+            //BookDTO bookDto = await _bookService.GetBookByBookIdAsync(DeleteBookId);
+
+            await _bookService.DeleteBookAsync(DeleteBookId);
+            await _jsRunTime.ToastrSuccess("Book deleted successfully");
+            Books = await _bookService.GetAllBooksAsync();
+        }
+
+        await _jsRunTime.InvokeVoidAsync("HideDeleteConfirmationModal");
+        IsProcessing = false;
+    }
+}

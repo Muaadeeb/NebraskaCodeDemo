@@ -29,14 +29,15 @@ namespace BlazorClient.Services
 
         public async Task<int> UpdateBookAsync(BookDTO book)
         {
+            var id = 1;
             JsonContent content = JsonContent.Create(book);
-            HttpResponseMessage response = await _httpClient.PostAsync($"/api/book/updatebook/{book}", content);
+            HttpResponseMessage response = await _httpClient.PostAsync($"/api/book/updatebook", content);
             return 0;
         }
 
         public async Task<int> DeleteBookAsync(int bookId)
         {
-            var response = await _httpClient.DeleteAsync($"deletebookbybookid/{bookId}");
+            var response = await _httpClient.DeleteAsync($"/api/book/deletebookbybookid?bookId={bookId}");
             return 0;
         }
 
@@ -46,10 +47,11 @@ namespace BlazorClient.Services
             return await BookMapping(response);
         }
 
-        public async Task<IEnumerable<BookDTO>> GetBookByBookIdAsync(int bookId)
+        public async Task<BookDTO> GetBookByBookIdAsync(int bookId)
         {
-            var response = await _httpClient.GetAsync("/api/book/getbookbybookid");
-            return await BookMapping(response);
+            var response = await _httpClient.GetAsync($"/api/book/getbookbybookid?bookId={bookId}");
+            var result = await BookMapping(response);
+            return result.FirstOrDefault();
         }
 
         public async Task<IEnumerable<BookDTO>> GetAllBooksAsync()
@@ -60,8 +62,15 @@ namespace BlazorClient.Services
 
         private async Task<IEnumerable<BookDTO>> BookMapping(HttpResponseMessage response)
         {
-            var content = await response.Content.ReadAsStringAsync();
-            return JsonConvert.DeserializeObject<IEnumerable<BookDTO>>(content);
+            try
+            {
+                var content = await response.Content.ReadAsStringAsync();
+                return JsonConvert.DeserializeObject<IEnumerable<BookDTO>>(content);
+            }
+            catch(Exception ex)
+            {
+                throw new Exception(ex.Message);
+            }
         }
     }
 }

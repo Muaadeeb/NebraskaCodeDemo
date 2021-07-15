@@ -111,7 +111,7 @@ using Blazored.TextEditor;
 #line hidden
 #nullable disable
     [Microsoft.AspNetCore.Components.RouteAttribute("/book/create")]
-    [Microsoft.AspNetCore.Components.RouteAttribute("/book/edit/{Id:int}")]
+    [Microsoft.AspNetCore.Components.RouteAttribute("/book/edit/{BookId:int}")]
     public partial class BookUpsert : Microsoft.AspNetCore.Components.ComponentBase
     {
         #pragma warning disable 1998
@@ -120,11 +120,11 @@ using Blazored.TextEditor;
         }
         #pragma warning restore 1998
 #nullable restore
-#line 107 "C:\Users\Owner\source\repos\NebraskaCodeDemo\BlazorClient\Pages\Books\BookUpsert.razor"
+#line 105 "C:\Users\Owner\source\repos\NebraskaCodeDemo\BlazorClient\Pages\Books\BookUpsert.razor"
        
 
     [Parameter]
-    public int? Id { get; set; }
+    public int? BookId { get; set; }
 
     private BookDTO BookDto { get; set; } = new BookDTO();
     private string Title { get; set; } = "Create";
@@ -134,10 +134,10 @@ using Blazored.TextEditor;
 
     protected async override Task OnInitializedAsync()
     {
-        if (Id != null)
+        if (BookId != null)
         {
             Title = "Update";
-            BookDto = (BookDTO)await _bookService.GetBookByBookIdAsync(Id.Value);
+            BookDto = await _bookService.GetBookByBookIdAsync(BookId.Value);
         }
         else
         {
@@ -158,12 +158,9 @@ using Blazored.TextEditor;
         {
             try
             {
-                if (!string.IsNullOrEmpty(BookDto.Comments))
-                {
-                    await QuillHtml.LoadHTMLContent(BookDto.Comments);
-                }
-
+                await LoadQuill();
                 loading = false;
+
             }
             catch
             {
@@ -175,20 +172,31 @@ using Blazored.TextEditor;
         }
     }
 
+    private async Task LoadQuill()
+    {
+        while (string.IsNullOrEmpty(BookDto.Comments))
+        {
+            await Task.Delay(10);
+        }
+
+        await QuillHtml.LoadHTMLContent(BookDto.Comments);
+    }
+
     private async Task HandleBookUpsert()
     {
         try
         {
-            var result = await _bookService.GetBooksBySearchValueAsync(BookDto.Title);
-
-            if (result.Any())
+            if (BookDto.BookId == 0)
             {
-                var bookTitle = result.FirstOrDefault(x => x.Title == BookDto.Title).Title;
-
-                if (!string.IsNullOrEmpty(bookTitle))
+                var result = await _bookService.GetBooksBySearchValueAsync(BookDto.Title);
+                if (result.Any())
                 {
-                    await _jsRunTime.ToastrError("A book with this title already exisits.");
-                    return;
+                    var searchResult = result.Where(x => x.Title == BookDto.Title);
+                    if (searchResult != null)
+                    {
+                        await _jsRunTime.ToastrError("A book with this title already exisits.");
+                        return;
+                    }
                 }
             }
 
@@ -205,7 +213,6 @@ using Blazored.TextEditor;
                 {
                     await _jsRunTime.ToastrSuccess("Something went wrong.  Book was not successfully updated, try again.");
                 }
-
             }
             else
             {
@@ -222,7 +229,6 @@ using Blazored.TextEditor;
         }
         catch (Exception ex)
         {
-            // log exception
         }
 
         _navigationManager.NavigateTo("book-list");

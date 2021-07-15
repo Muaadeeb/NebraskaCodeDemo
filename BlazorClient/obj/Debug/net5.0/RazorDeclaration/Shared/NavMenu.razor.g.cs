@@ -118,7 +118,7 @@ using Blazored.TextEditor;
         }
         #pragma warning restore 1998
 #nullable restore
-#line 64 "C:\Users\Owner\source\repos\NebraskaCodeDemo\BlazorClient\Shared\NavMenu.razor"
+#line 28 "C:\Users\Owner\source\repos\NebraskaCodeDemo\BlazorClient\Shared\NavMenu.razor"
        
     private bool collapseNavMenu = true;
 

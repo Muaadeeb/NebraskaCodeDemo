@@ -1,5 +1,8 @@
 ﻿@page "/book-list"
 
+
+@using BlazorClient.Shared
+
 @inject IBookService _bookService;
 @inject NavigationManager _navigationManager;
 @inject IJSRuntime _jsRunTime;
@@ -49,7 +52,7 @@
                                         AuthorName += " " + @book.AuthorLastName;
                                     }
                                 }
-                                
+
                                 @((MarkupString)AuthorName)
                             </td>
                             <td>@book.PrintLength</td>

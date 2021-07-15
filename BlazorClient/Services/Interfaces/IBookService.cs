@@ -12,7 +12,7 @@ namespace BlazorClient.Services.Interfaces
             Task<int> UpdateBookAsync(BookDTO book);
             Task<int> DeleteBookAsync(int bookId);
             Task<IEnumerable<BookDTO>> GetBooksBySearchValueAsync(string searchValue);
-            Task<IEnumerable<BookDTO>> GetBookByBookIdAsync(int bookId);
+            Task<BookDTO> GetBookByBookIdAsync(int bookId);
             public Task<IEnumerable<BookDTO>> GetAllBooksAsync();
         }
 }

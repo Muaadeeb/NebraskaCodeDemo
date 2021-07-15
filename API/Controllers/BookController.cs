@@ -42,23 +42,28 @@ namespace API.Controllers
             }
         }
 
-        [HttpGet("getbookbybookid/{id}")]
-        public async Task<IActionResult> GetBookByBookId(int id)
+        [HttpGet("getbookbybookid")]
+        public async Task<IActionResult> GetBookByBookId(int bookId)
         {
-            var result = await _bookManager.GetBookByBookIdAsync(id);
+            var result = await _bookManager.GetBookByBookIdAsync(bookId);
             return Ok(result);
         }
-
-        //[HttpGet("searchvalue/{bookSearchValue}")]
+        
         [HttpGet("searchvalue")]
-        public async Task<IActionResult> GetBooksBySearchValue(string bookSearchValue)
+        public async Task<IActionResult> GetBooksBySearchValueAsync(string bookSearchValue)
         {
             var result = await _bookManager.GetBooksBySearchValueAsync(bookSearchValue);
             return Ok(result);
         }
 
+        //[HttpPost("updatebook")]
+        //public async Task<int> UpdateBookAsync([FromBody] Book book)
+        //{
+        //    return await _bookManager.UpdateBookAsync(book);
+        //}
+
         [HttpPost("updatebook")]
-        public async Task<int> UpdateBook([FromBody] Book book)
+        public async Task<int> UpdateBookAsync([FromBody] Book book)
         {
             return await _bookManager.UpdateBookAsync(book);
         }
@@ -69,10 +74,10 @@ namespace API.Controllers
             return await _bookManager.CreateBookAsync(book);
         }
 
-        [HttpDelete("deletebookbybookid/{id}")]
-        public async Task<int> DeleteBookByBookId(int id)
+        [HttpDelete("deletebookbybookid")]
+        public async Task<int> DeleteBookByBookId(int bookId)
         {
-            return await _bookManager.DeleteBookAsync(id);
+            return await _bookManager.DeleteBookAsync(bookId);
         }
     }
 }

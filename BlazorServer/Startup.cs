@@ -1,8 +1,11 @@
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
-using BlazorServer.Data;
+using Business;
+using Business.Interfaces;
+using DataAccess;
+using DataAccess.Interfaces;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Components;
 using Microsoft.AspNetCore.Hosting;
@@ -10,6 +13,9 @@ using Microsoft.AspNetCore.HttpsPolicy;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
+using NebraskaCodeDataLibraryDemo.Data;
+using NebraskaCodeDataLibraryDemo.Data.Interfaces;
+using NebraskaCodeDataLibraryDemo.Db.Interfaces;
 
 namespace BlazorServer
 {
@@ -28,11 +34,29 @@ namespace BlazorServer
 		{
 			services.AddRazorPages();
 			services.AddServerSideBlazor();
-			services.AddSingleton<WeatherForecastService>();
-		}
 
-		// This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
-		public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
+            services.AddSingleton(new NebraskaCodeDataLibraryDemo.Db.ConnectionStringData
+            {
+                SqlConnectionName = "Default"
+            });
+            services.AddSingleton<IDataAccess, NebraskaCodeDataLibraryDemo.Db.DataAccess>();
+
+
+            //services.AddSingleton<IDataAccess, NebraskaCodeDataLibraryDemo.Db.DataAccess>();
+
+            services.AddAutoMapper(AppDomain.CurrentDomain.GetAssemblies());
+            services.AddScoped<IBookManager, BookManager>();
+            services.AddScoped<IBookRepository, BookRepository>();
+            services.AddScoped<IBookData, BookData>();
+
+            services.AddCors(x => x.AddPolicy("NebraskaCodeDemo", builder =>
+            {
+                builder.AllowAnyOrigin().AllowAnyMethod().AllowAnyHeader();
+            }));
+        }
+
+        // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
+        public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
 		{
 			if (env.IsDevelopment())
 			{

@@ -76,13 +76,6 @@ using BlazorClient;
 #line hidden
 #nullable disable
 #nullable restore
-#line 10 "C:\Users\Owner\source\repos\NebraskaCodeDemo\BlazorClient\_Imports.razor"
-using BlazorClient.Shared;
-
-#line default
-#line hidden
-#nullable disable
-#nullable restore
 #line 12 "C:\Users\Owner\source\repos\NebraskaCodeDemo\BlazorClient\_Imports.razor"
 using ModelDTOs;
 
@@ -110,6 +103,13 @@ using Blazored.TextEditor;
 #line default
 #line hidden
 #nullable disable
+#nullable restore
+#line 4 "C:\Users\Owner\source\repos\NebraskaCodeDemo\BlazorClient\Pages\Books\BookList.razor"
+using BlazorClient.Shared;
+
+#line default
+#line hidden
+#nullable disable
     [Microsoft.AspNetCore.Components.RouteAttribute("/book-list")]
     public partial class BookList : Microsoft.AspNetCore.Components.ComponentBase
     {
@@ -119,7 +119,7 @@ using Blazored.TextEditor;
         }
         #pragma warning restore 1998
 #nullable restore
-#line 77 "C:\Users\Owner\source\repos\NebraskaCodeDemo\BlazorClient\Pages\Books\BookList.razor"
+#line 80 "C:\Users\Owner\source\repos\NebraskaCodeDemo\BlazorClient\Pages\Books\BookList.razor"
        
     public string AuthorName { get; set; } = string.Empty;
     private IEnumerable<BookDTO> Books { get; set; } = new List<BookDTO>();
