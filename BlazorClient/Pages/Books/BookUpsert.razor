@@ -81,7 +81,7 @@
 
                     <div class="form-group">
                         <label>Publication Date</label>
-                        <InputDate type="text" class="form-control" @bind-Value="BookDto.PublicationDate" min="@DateTime.Now.AddYears(-10).ToString("yyy-MM-dd")" />
+                        <InputDate type="text" class="form-control" @bind-Value="BookDto.PublicationDate" />
                         <ValidationMessage For="()=> BookDto.PublicationDate"></ValidationMessage>
                     </div>
 

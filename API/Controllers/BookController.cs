@@ -55,7 +55,6 @@ namespace API.Controllers
         }
 
         [HttpPost("updatebook")]
-        //public async Task<int> UpdateBookAsync([FromBody] Book book)
         public async Task<IActionResult> UpdateBookAsync([FromBody] Book book)
         {
             try

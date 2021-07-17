@@ -104,7 +104,7 @@ using Blazored.TextEditor;
 #line hidden
 #nullable disable
 #nullable restore
-#line 4 "C:\Users\Owner\source\repos\NebraskaCodeDemo\BlazorServer\Pages\Books\BookList.razor"
+#line 3 "C:\Users\Owner\source\repos\NebraskaCodeDemo\BlazorServer\Pages\Books\BookList.razor"
 using BlazorServer.Shared;
 
 #line default
@@ -119,7 +119,7 @@ using BlazorServer.Shared;
         }
         #pragma warning restore 1998
 #nullable restore
-#line 80 "C:\Users\Owner\source\repos\NebraskaCodeDemo\BlazorServer\Pages\Books\BookList.razor"
+#line 79 "C:\Users\Owner\source\repos\NebraskaCodeDemo\BlazorServer\Pages\Books\BookList.razor"
        
     public string AuthorName { get; set; } = string.Empty;
     private IEnumerable<BookDTO> Books { get; set; } = new List<BookDTO>();

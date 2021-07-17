@@ -24,7 +24,7 @@ namespace ModelDTOs
 
         public string Publisher { get; set; }
 
-        public DateTime PublicationDate { get; set; }
+        public DateTime PublicationDate { get; set; } = DateTime.Now;
 
         public int ISBN { get; set; }
         [Range(1, 10, ErrorMessage = "Rate between 1 (low) and 10 (high)")]

@@ -211,7 +211,7 @@ using Blazored.TextEditor;
                 }
                 else
                 {
-                    await _jsRunTime.ToastrSuccess("Something went wrong.  Book was not successfully updated, try again.");
+                    await _jsRunTime.ToastrError("Something went wrong.  Book was not successfully updated, try again.");
                 }
             }
             else
@@ -223,7 +223,7 @@ using Blazored.TextEditor;
                 }
                 else
                 {
-                    await _jsRunTime.ToastrSuccess("Something went wrong.  Book was not successfully created, try again.");
+                    await _jsRunTime.ToastrError("Something went wrong.  Book was not successfully created, try again.");
                 }
             }
         }
